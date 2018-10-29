@@ -27,7 +27,7 @@
             <td> {{ $client->address }} </td>
             <td> {{ $client->pan_no }} </td>
             <td> {{ $client->account_type }}</td>
-            <td><a href="#"> Edit </a> </td>
+            <td><a href="/clientmanager/{{ $client->id }}/edit_client"> Edit </a> </td>
             </tr>
            <?php $i++ ?>
             @endforeach

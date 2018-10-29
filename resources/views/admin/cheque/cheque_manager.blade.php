@@ -33,7 +33,7 @@
             <td> {{ $cheque->amount }}</td>
             <td> {{ $cheque->cheque_detail }} </td>
             <td>  {{ $cheque->cheque_date }} </td>
-            <td><a href="#"> Edit </a> </td>
+            <td><a href="/chequemanager/{{ $cheque->id }}/edit_cheque"> Edit </a> </td>
             </tr>
             <?php $i++ ?>
            

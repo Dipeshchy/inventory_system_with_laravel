@@ -33,7 +33,7 @@
             <td>{{ $client->balance->balance }}</td>
             <td> {{ $client->account_type }} </td>
             
-            <td><a href="#"> View </a> </td>
+            <td><a href="/ledger_view/{{ $client->id }}"> View </a> </td>
             </tr>
             <?php $i++ ?>
            
