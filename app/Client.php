@@ -9,4 +9,12 @@ class Client extends Model
     {
         return $this->hasMany('App\Cheque_entry');
     }
+    public function balance()
+    {
+        return $this->hasOne('App\Balance');
+    }
+    public function agent()
+    {
+        return $this->hasMany('App\Agent');
+    }
 }

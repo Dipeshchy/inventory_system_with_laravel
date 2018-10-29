@@ -25,7 +25,9 @@
     <br>
     <label>Agent</label>
     <select name="agent">
-        <option value="dipesh">Dipesh Chaudhary</option>
+    @foreach($agents as $agent)
+        <option value="{{ $agent->name }}">{{ $agent->name }}</option>
+    @endforeach
     </select>
     <br>
     <label>Account Type</label>

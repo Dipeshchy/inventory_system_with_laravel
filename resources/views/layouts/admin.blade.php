@@ -38,12 +38,12 @@
             <li><a href="{{ url('/admin') }}">Home</a></li>
             <li><a href="{{ url('/clientmanager') }}">Client Manager</a></li>
             <li> <a href="{{ url('/chequemanager') }}"> Cheque Manager</a></li>
-            <li>Ledger Manager</li>
-            <li>A/C Receivables</li>
-            <li>A/C Payables</li>
-            <li>A/C Scarp</li>
-            <li>Agent Manager</li>
-            <li>Labour Manager</li>
+            <li> <a href="{{ url('/ledgermanager') }}"> Ledger Manager </a></li>
+            <li> <a href="{{ url('/ac_receivables') }} "> A/C Receivables</a></li>
+            <li> <a href="{{ url('/ac_payables') }} "> A/C Payables</a></li>
+            <li> <a href="{{ url('/ac_scrap') }} "> A/C Scrap</a></li>
+            <li> <a href="{{ url('/agentmanager') }}"> Agent Manager</a></li>
+            <li> <a href="{{ url('/labourmanager') }}"> Labour Manager</a></li>
             <li>Labaour Ledger</li>
             <li>Invoice Generator</li>
             <li>Inventory List</li>

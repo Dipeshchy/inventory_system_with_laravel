@@ -20,11 +20,13 @@
         </tr>
     </thead>
     <tbody>
-    
+    <?php
+        $i=1
+    ?>
         @foreach($cheques as $cheque)
   
             <tr>
-            <td> {{ $cheque->id }} </td>
+            <td> {{ $i }} </td>
             <td> {{ $cheque->clients->name }}</td>
             <td> {{ $cheque->clients->address }} </td>
             <td> {{ $cheque->bank }} </td>
@@ -33,6 +35,7 @@
             <td>  {{ $cheque->cheque_date }} </td>
             <td><a href="#"> Edit </a> </td>
             </tr>
+            <?php $i++ ?>
            
             @endforeach 
       

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Client;
 use App\Cheque_entry;
+use App\Balance;
+use App\Agent;
+use App\Labour;
 
 use Illuminate\Http\Request;
 
@@ -12,6 +15,9 @@ class AdminController extends Controller
     {
         return view('admin.admin_home');
     }
+
+    // **** CLients COntroller ************
+
     public function clientManager()
     {
         $clients = Client::all();
@@ -19,7 +25,8 @@ class AdminController extends Controller
     }
     public function addclients()
     {
-        return view('admin.clients.createclients');
+        $agents = Agent::all();
+        return view('admin.clients.createclients',compact('agents'));
     }
     public function storeclients(Request $request)
     {
@@ -44,6 +51,9 @@ class AdminController extends Controller
         return redirect('/clientmanager');
 
     }
+    // **********************End of Clients Controller **********************
+
+    // ************* Cheque COntroller *********************
 
     public function chequeManager()
     {
@@ -81,5 +91,80 @@ class AdminController extends Controller
 
         return redirect('/chequemanager');
     }
+    // **************************** End of Cheque Controller *****************
+
+    // ************* Ledger Controller*******************
+    public function ledgerManager()
+    {
+        $clients = Client::all();
+        $balances = Balance::all();
+        return view('admin.ledger.ledgermanager',compact('clients','balances'));
+    }
+
+
+
+
+
+
+    // *************** A/C Receivables Controller ******************
+    public function ac_Receivables()
+    {
+        $clients = Client::where('account_type','A/C Receivables')->get();
+        $balances = Balance::all();
+        return view('admin.account_type.receivable',compact('clients','balances'));
+    }
+
+
+    // ************** A/C Payables Controller *******************
+    public function ac_Payables()
+    {
+        $clients = Client::where('account_type','A/C Payables')->get();
+        
+        return view('admin.account_type.payable',compact('clients'));
+    }
    
+
+
+    // ***************** A/C Scraps *****************
+    public function ac_Scraps()
+    {
+        $clients = Client::where('account_type','A/C Scraps')->get();
+        
+        return view('admin.account_type.scrap',compact('clients'));
+    }
+
+
+
+    // ************* Agent Manager Controller *************
+    public function agentManager()
+    {
+        $agents = Agent::all();
+        return view('admin.agent.agent_manager',compact('agents'));
+    }
+
+    public function addAgents()
+    {
+        return view('admin.agent.add_agent');
+    }
+
+    public function storeAgents(Request $request)
+    {
+        $agent = new Agent;
+
+        $agent->name = $request->input('name');
+        $agent->phone_no = $request->input('phone_no');
+        $agent->mobile_no = $request->input('mobile_no');
+        $agent->description = $request->input('description');
+
+        $agent->save();
+        return redirect('/agentmanager');
+    }
+
+    // ************** Labour Manager Controller ********************
+    public function labourManager()
+    {
+        $labours = Labour::all();
+
+        return view('admin.labour.labour_manager',compact('labours'));
+    }
 }
